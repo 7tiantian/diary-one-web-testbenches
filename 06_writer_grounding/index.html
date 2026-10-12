@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Writer 有据文案 · Diary One 测试台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 商用算法测试台</div>
+    <div class="sub">06_writer_grounding<br/>风格参照 Real-media Test Lab</div>
+    <a href="#work" class="active" data-tab="work">导入<br><span style="font-size:10px;color:#78716c">Import</span></a>
+<a href="#review" class="" data-tab="review">评审<br><span style="font-size:10px;color:#78716c">Review</span></a>
+<a href="#metrics" class="" data-tab="metrics">指标<br><span style="font-size:10px;color:#78716c">Metrics</span></a>
+  </nav>
+  <main>
+    <div class="tag">LOCAL ONLY</div>
+    <div class="tag">PRD V0.1</div>
+    <div class="tag">handoff V1.75</div>
+    <h1>Writer 有据文案</h1>
+    <div class="en">WRITER GROUNDING · S11</div>
+    
+        <p class="lead">对可见 Chapter/Aha 文案做规则初筛 + 人工去留判定。</p>
+        <div class="panel"><div class="row">
+          <button id="loadSample">加载示例</button>
+          <input type="file" id="fileJson" accept="application/json,.json"/>
+          <button id="analyze">分析文案</button>
+        </div><textarea id="jsonIn" rows="8"></textarea></div>
+        <div class="panel"><div class="grid" id="metricGrid"></div></div>
+        <div class="panel"><div id="list"></div></div>
+        
+  </main>
+  <aside>
+    
+        <h3>能证明什么</h3>
+        <ul><li>文案是否可上 Diary 卡</li><li>是否套话/编纂</li></ul>
+        <h3>PRD</h3><p>AI01 · AI03 · 用户价值维度</p>
+        
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

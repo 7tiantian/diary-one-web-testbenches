@@ -1,0 +1,115 @@
+{
+  "schema_version": "DIARY_ONE_X02_STAGED_PREVIEW_V04_1",
+  "experiment": "X02_STAGED_REAL_MEDIA_PREVIEW",
+  "delivery_state": "READY_PRIMARY_COPY",
+  "semantic_day_state": "PARTIAL_DAY",
+  "production_ready": false,
+  "pipeline_version": "V1.75_HANDOFF_SAMPLE",
+  "chapters": [
+    {
+      "id": "C01",
+      "title": "石板路上的午后",
+      "story": "沿着石板路慢慢走，屋檐影子把路面切成一段一段。",
+      "publication_status": "STAGED_PREVIEW_VALIDATED",
+      "primary_tags": [
+        "outdoor",
+        "walk"
+      ],
+      "hero_frame_id": "asset-0-f0",
+      "media": [
+        {
+          "frame_id": "asset-0-f0",
+          "role": "HERO"
+        },
+        {
+          "frame_id": "asset-1-f0",
+          "role": "MOMENT"
+        },
+        {
+          "frame_id": "asset-2-f0",
+          "role": "MOMENT"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "title": "河边停一下",
+      "story": "在桥边停住，水声盖过远处的人声。",
+      "publication_status": "STAGED_PREVIEW_VALIDATED",
+      "primary_tags": [
+        "water"
+      ],
+      "hero_frame_id": "asset-3-f0",
+      "media": [
+        {
+          "frame_id": "asset-3-f0",
+          "role": "HERO"
+        },
+        {
+          "frame_id": "asset-4-f0",
+          "role": "MOMENT"
+        },
+        {
+          "frame_id": "asset-5-f0",
+          "role": "MOMENT"
+        },
+        {
+          "frame_id": "asset-6-f0",
+          "role": "MOMENT"
+        }
+      ]
+    }
+  ],
+  "ahas": [
+    {
+      "id": "A01",
+      "story": "猫从门槛跳进光里。",
+      "publication_status": "STAGED_PREVIEW_VALIDATED",
+      "core_frame_id": "asset-7-f0"
+    }
+  ],
+  "selected_memory_outcomes": [
+    {
+      "memory_type": "CHAPTER",
+      "memory_id": "C01",
+      "visibility_state": "VISIBLE_PREVIEW",
+      "media_state": "S10_MEDIA_READY",
+      "surface_state": "COPY_READY"
+    },
+    {
+      "memory_type": "CHAPTER",
+      "memory_id": "C02",
+      "visibility_state": "VISIBLE_PREVIEW",
+      "media_state": "S10_MEDIA_READY",
+      "surface_state": "COPY_READY"
+    },
+    {
+      "memory_type": "AHA",
+      "memory_id": "A01",
+      "visibility_state": "VISIBLE_PREVIEW",
+      "media_state": "S10_MEDIA_READY",
+      "surface_state": "COPY_READY"
+    }
+  ],
+  "observations": [
+    {
+      "source_asset_id": "asset-0",
+      "status": "OBSERVED",
+      "facts": [
+        {
+          "fact_id": "F001",
+          "text": "石板路与屋檐投影",
+          "evidence_frame_ids": [
+            "asset-0-f0"
+          ]
+        }
+      ]
+    }
+  ],
+  "_publish": {
+    "publish_admit": true,
+    "admit_reason": "ok",
+    "delivery_state": "READY_PRIMARY_COPY",
+    "fail_job": false
+  }
+}

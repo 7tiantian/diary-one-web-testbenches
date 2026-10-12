@@ -2,6 +2,20 @@
 
 本仓库收录 **Diary One** 产品定义书 PRD V0.1 相关的 Web 功能测试台，对应本机目录 `web测试台` 中的下列台：
 
+## 内容 / 合同分台（01–07）
+
+| 目录 | 说明 | 默认端口 |
+|------|------|----------|
+| `01_evidence_contract` | Evidence 标准化合同 | 5171 |
+| `02_grounded_facts_ai01` | 事实接地（AI01） | 5172 |
+| `03_chapter_structure` | Chapter 结构与边界 | 5173 |
+| `04_aha_independence` | Aha / 小记忆独立性 | 5174 |
+| `05_media_selection` | 媒体精选与 Hero | 5175 |
+| `06_writer_grounding` | Writer 有据文案 | 5176 |
+| `07_delivery_admit` | 交付状态与准入 | 5177 |
+
+静态台启动：`python -m http.server <端口>`（见各目录 README）。
+
 ## 本地轻处理 / 云端 Chapter
 
 | 目录 | 说明 | 默认端口 |

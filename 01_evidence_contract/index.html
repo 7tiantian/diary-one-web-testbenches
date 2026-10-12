@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evidence 标准化合同 · Diary One 测试台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 商用算法测试台</div>
+    <div class="sub">01_evidence_contract<br/>风格参照 Real-media Test Lab</div>
+    <a href="#work" class="active" data-tab="work">测试台<br><span style="font-size:10px;color:#78716c">Workbench</span></a>
+<a href="#metrics" class="" data-tab="metrics">指标<br><span style="font-size:10px;color:#78716c">Metrics</span></a>
+<a href="#help" class="" data-tab="help">说明<br><span style="font-size:10px;color:#78716c">Help</span></a>
+  </nav>
+  <main>
+    <div class="tag">LOCAL ONLY</div>
+    <div class="tag">PRD V0.1</div>
+    <div class="tag">handoff V1.75</div>
+    <h1>Evidence 标准化合同</h1>
+    <div class="en">EVIDENCE CONTRACT · PRI02 / IMP03</div>
+    
+        <p class="lead">把一批相册素材在<strong>浏览器本地</strong>标准化成 768×1024 Evidence，检查是否满足 iOS 上云前的硬合同。不调用模型。</p>
+        <div class="panel" id="work">
+          <h2>01 选择素材并生成</h2>
+          <input type="file" id="files" multiple accept="image/*,video/*" />
+          <div class="row">
+            <button id="run">生成本地 Evidence 报告</button>
+            <button class="secondary" id="export">导出 JSON</button>
+          </div>
+          <p class="note">视频完整抽帧受浏览器限制；照片合同为必测项。正式 Auto 9s 三帧不在本台范围。</p>
+        </div>
+        <div class="panel" id="metrics">
+          <h2>02 量化指标</h2>
+          <div class="grid" id="metricGrid"></div>
+        </div>
+        <div class="panel">
+          <h2>03 逐项结果</h2>
+          <div id="rows"></div>
+        </div>
+        
+  </main>
+  <aside>
+    
+        <h3>这轮能证明什么</h3>
+        <ul>
+          <li>App 侧最小 Evidence 是否可商用上传</li>
+          <li>是否误传原片</li>
+          <li>画布合同是否稳定</li>
+        </ul>
+        <h3>暂时不能证明</h3>
+        <ul>
+          <li>云端语义质量</li>
+          <li>穿戴 Auto 9 秒三帧（另合同）</li>
+        </ul>
+        <h3>PRD</h3>
+        <p>PRI02 · IMP03 · SYS01</p>
+        
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

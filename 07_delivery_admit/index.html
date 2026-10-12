@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>交付准入 Admit · Diary One 测试台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 商用算法测试台</div>
+    <div class="sub">07_delivery_admit<br/>风格参照 Real-media Test Lab</div>
+    <a href="#work" class="active" data-tab="work">导入<br><span style="font-size:10px;color:#78716c">Import</span></a>
+<a href="#metrics" class="" data-tab="metrics">指标<br><span style="font-size:10px;color:#78716c">Metrics</span></a>
+<a href="#help" class="" data-tab="help">说明<br><span style="font-size:10px;color:#78716c">Help</span></a>
+  </nav>
+  <main>
+    <div class="tag">LOCAL ONLY</div>
+    <div class="tag">PRD V0.1</div>
+    <div class="tag">handoff V1.75</div>
+    <h1>交付准入 Admit</h1>
+    <div class="en">DELIVERY / ADMIT · DAT01 / AI03</div>
+    
+        <p class="lead">专门检查「能不能进 iOS Diary」的门闩，而不是文案好不好看。</p>
+        <div class="panel"><div class="row">
+          <button id="loadSample">加载示例</button>
+          <input type="file" id="fileJson" accept="application/json,.json"/>
+          <button id="analyze">运行准入检查</button>
+        </div><textarea id="jsonIn" rows="10"></textarea></div>
+        <div class="panel"><div class="grid" id="metricGrid"></div></div>
+        <div class="panel"><pre id="detail" class="note" style="white-space:pre-wrap"></pre></div>
+        
+  </main>
+  <aside>
+    
+        <h3>能证明什么</h3>
+        <ul><li>阻断是否误放行</li><li>空日是否诚实</li><li>与 BFF admit 是否一致</li></ul>
+        <h3>PRD</h3><p>DAT01 · AI03 · DIA02 · SYS01</p>
+        
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
