@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T04 · 网络恢复 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T04_网络恢复<br/>端口 8904<br/>REL01 · T04 · SYS02</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">REL01 · T04 · SYS02</span>
+    <span class="tag">完整功能台</span>
+    <h1>T04 · 网络恢复</h1>
+    <div class="en">T04_网络恢复 · 页面结果 + 数据事实</div>
+    <p class="lead">提交成功后故意「丢掉回复」，再查询原任务：不得重复内容、不得危险重复计费。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 后端与半成品</h2>
+      <div class="row">
+        <input class="inline" id="bff" value="http://127.0.0.1:8790" />
+        <input class="inline" id="token" type="password" value="dev-token" />
+      </div>
+      <input type="file" id="zip" accept=".zip" />
+      <div class="row">
+        <input class="inline" id="rev" placeholder="固定 day_revision_id" />
+        <button id="genRev">生成固定 revision</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>2 · 模拟：提交成功后丢回复 → 重开查询</h2>
+      <div class="row">
+        <button id="submitDrop">提交并丢弃响应体（只记 job 暗示）</button>
+        <button id="recover">用原 revision / job 恢复查询</button>
+        <button class="warn" id="submitAgain">再次提交同一 revision（应幂等）</button>
+      </div>
+      <pre id="log" class="log"></pre>
+      <div class="grid" id="metrics"></div>
+      <div id="pass"></div>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>查询原任务</li><li>无重复危险计费</li><li>同 revision 幂等</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>真机切热点的射频层差异</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8904</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

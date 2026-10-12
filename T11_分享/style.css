@@ -1,0 +1,73 @@
+
+:root {
+  --bg: #f4f1ec; --ink: #1c1917; --muted: #57534e; --line: #d6d3d1;
+  --card: #fffdf8; --nav: #ebe6de; --accent: #1e3a5f; --ok: #166534; --bad: #9a3412;
+  --idea: #0f766e; --warn: #a16207;
+  --font: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font); background: var(--bg); color: var(--ink); }
+.app { display: grid; grid-template-columns: 200px 1fr 280px; min-height: 100vh; }
+nav { background: var(--nav); padding: 20px 14px; border-right: 1px solid var(--line); }
+nav .brand { font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+nav .sub { font-size: 11px; color: var(--muted); margin-bottom: 18px; line-height: 1.4; }
+nav a { display: block; padding: 8px 10px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 12px; margin-bottom: 2px; }
+nav a:hover, nav a.active { background: #fff; }
+main { padding: 22px 26px 40px; max-width: 920px; }
+h1 { font-size: 22px; margin: 0 0 6px; }
+.en { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+.lead { font-size: 14px; line-height: 1.55; margin-bottom: 16px; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+.panel h2 { font-size: 14px; margin: 0 0 10px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.metric { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.metric .k { font-size: 11px; color: var(--muted); }
+.metric .v { font-size: 18px; font-weight: 700; margin-top: 4px; word-break: break-all; }
+.metric .t { font-size: 11px; color: var(--idea); margin-top: 4px; }
+button {
+  appearance: none; border: 1px solid var(--accent); background: var(--accent); color: #fff;
+  border-radius: 10px; padding: 10px 14px; font: inherit; cursor: pointer; font-size: 13px;
+}
+button.secondary { background: #fff; color: var(--accent); }
+button.warn { background: var(--warn); border-color: var(--warn); }
+button.bad { background: var(--bad); border-color: var(--bad); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+aside { background: #efeae2; border-left: 1px solid var(--line); padding: 18px 14px; font-size: 12px; line-height: 1.5; }
+aside h3 { margin: 0 0 8px; font-size: 13px; }
+aside ul { padding-left: 16px; margin: 6px 0 14px; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #e7e5e4; font-size: 11px; margin-right: 6px; margin-bottom: 6px; }
+.ok { color: var(--ok); font-weight: 700; }
+.bad { color: var(--bad); font-weight: 700; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 8px 0; }
+.note { font-size: 12px; color: var(--muted); line-height: 1.5; }
+textarea, input[type=text], input[type=file], input[type=password], input[type=number], select {
+  width: 100%; font: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 8px; background: #fff;
+}
+input.inline { width: auto; min-width: 160px; }
+pre, .log {
+  background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 10px;
+  font-size: 11px; white-space: pre-wrap; word-break: break-word; max-height: 280px; overflow: auto;
+}
+.item {
+  display: flex; gap: 10px; align-items: flex-start; padding: 8px; border: 1px solid var(--line);
+  border-radius: 8px; margin-bottom: 6px; background: #fff;
+}
+.item img, .item video { width: 56px; height: 72px; object-fit: cover; border-radius: 4px; background: #ddd; }
+.check { list-style: none; padding: 0; margin: 0; }
+.check li { padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal .d {
+  aspect-ratio: 1; border: 1px solid var(--line); border-radius: 6px; display: flex; align-items: center;
+  justify-content: center; font-size: 12px; cursor: pointer; background: #fff;
+}
+.cal .d.has { background: #dcfce7; font-weight: 700; }
+.cal .d.sel { outline: 2px solid var(--accent); }
+.cal .d.fut { opacity: 0.35; pointer-events: none; }
+.player-box { background: #111; color: #eee; border-radius: 10px; padding: 10px; margin-bottom: 8px; }
+.player-box video { width: 100%; max-height: 180px; background: #000; }
+.chip { display: inline-block; padding: 2px 8px; border-radius: 6px; background: #e7e5e4; font-size: 11px; margin-right: 4px; }
+@media (max-width: 1100px) {
+  .app { grid-template-columns: 1fr; }
+  nav, aside { border: none; }
+  .grid { grid-template-columns: 1fr 1fr; }
+}

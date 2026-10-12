@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T02 · 时间与重复 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T02_时间与重复<br/>端口 8902<br/>IMP02 · T02 · REL01</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">IMP02 · T02 · REL01</span>
+    <span class="tag">完整功能台</span>
+    <h1>T02 · 时间与重复</h1>
+    <div class="en">T02_时间与重复 · 页面结果 + 数据事实</div>
+    <p class="lead">同文件重选不得产生重复记忆；拍摄时间来源可解释；缺失时间不得静默换日。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 选入素材（可重复点选同一文件）</h2>
+      <input type="file" id="files" multiple accept="image/*,video/*" />
+      <div class="row">
+        <label>归属日（用户确认） <input class="inline" type="text" id="day" placeholder="YYYY-MM-DD 可空" /></label>
+        <button id="ingest">入账（带去重）</button>
+        <button class="secondary" id="reingest">再次入账同一批（测重复）</button>
+      </div>
+      <p class="note">本台用文件指纹去重；时间优先读文件 lastModified，并标明来源。无拍摄时间时要求用户确认归属日，禁止静默改日。</p>
+    </div>
+    <div class="panel">
+      <h2>2 · 账本</h2>
+      <div class="grid" id="metrics"></div>
+      <div id="rows"></div>
+      <div id="pass"></div>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>同文件重选无重复条目</li><li>时间来源可解释</li><li>无拍摄时间不静默重分日</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>真实 EXIF 全机型覆盖（需真机补充）</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8902</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

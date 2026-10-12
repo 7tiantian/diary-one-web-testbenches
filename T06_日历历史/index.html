@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T06 · 日历历史 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T06_日历历史<br/>端口 8906<br/>DIA05 · NAV01 · T06</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">DIA05 · NAV01 · T06</span>
+    <span class="tag">完整功能台</span>
+    <h1>T06 · 日历历史</h1>
+    <div class="en">T06_日历历史 · 页面结果 + 数据事实</div>
+    <p class="lead">跨月跳日、分页失败、从详情返回：日期正确、旧历史保留、局部可重试、浏览上下文不丢。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 日历</h2>
+      <div class="row">
+        <button class="secondary" id="prev">上月</button>
+        <strong id="ym"></strong>
+        <button class="secondary" id="next">下月</button>
+        <button class="warn" id="failPage">模拟分页失败</button>
+        <button id="retryPage">局部重试分页</button>
+      </div>
+      <div class="cal" id="cal"></div>
+      <p class="note" id="ctx"></p>
+    </div>
+    <div class="panel">
+      <h2>2 · 详情（模拟）</h2>
+      <div id="detail" class="note">未选日</div>
+      <button class="secondary" id="back">从详情返回</button>
+    </div>
+    <div class="panel">
+      <h2>3 · 验收</h2>
+      <div class="grid" id="metrics"></div>
+      <div id="pass"></div>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>跨月日期正确</li><li>分页失败可局部重试</li><li>返回不丢上下文</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>真机超长历史性能</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8906</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

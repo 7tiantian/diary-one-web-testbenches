@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T03 · 真链路 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T03_真链路<br/>端口 8903<br/>IMP03 · SYS01 · T03</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">IMP03 · SYS01 · T03</span>
+    <span class="tag">完整功能台</span>
+    <h1>T03 · 真链路</h1>
+    <div class="en">T03_真链路 · 页面结果 + 数据事实</div>
+    <p class="lead">一组混合素材必须走手机 → 自家云 → 锁定算法版本，结果可追到输入与媒体；重开仍可读。不能用 Local preview 代替。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 连接自家后端（真实云）</h2>
+      <div class="row">
+        <input class="inline" id="bff" value="http://127.0.0.1:8790" />
+        <input class="inline" id="token" type="password" value="dev-token" placeholder="Bearer" />
+        <button id="health">检查 /health</button>
+      </div>
+      <pre id="healthOut" class="log"></pre>
+    </div>
+    <div class="panel">
+      <h2>2 · 上传半成品包并提交（对齐正式 day-revision）</h2>
+      <p class="note">请先用「08 本地算法轻处理」打出 diary_one_upload_bundle.zip，再在此提交。本台不接受纯本地假预览当作通过。</p>
+      <input type="file" id="zip" accept=".zip" />
+      <div class="row">
+        <input class="inline" id="rev" placeholder="day_revision_id 可空=自动" />
+        <button id="submit">提交真链路</button>
+        <button class="secondary" id="poll">查询原任务</button>
+      </div>
+      <pre id="log" class="log"></pre>
+    </div>
+    <div class="panel">
+      <h2>3 · 可追溯性与重开可读</h2>
+      <div class="grid" id="metrics"></div>
+      <div id="pass"></div>
+      <button class="secondary" id="saveLocal">把上次成功结果写入本台本地（模拟重开）</button>
+      <button class="secondary" id="reloadLocal">模拟重开 App 读取</button>
+      <pre id="localOut" class="log"></pre>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>结果可追到输入与任务</li><li>使用实际云服务</li><li>重开后仍可读</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>内容真实性人工抽检（见 02–07 分台）</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8903</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

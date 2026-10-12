@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>09 · 云端 Chapter · Diary One</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 商用算法测试台</div>
+    <div class="sub">09_cloud_processing_pipeline<br/>半成品 + 百炼 Key → Chapter</div>
+    <a href="#work" class="active">云端台</a>
+    <a href="#chapters">Chapters</a>
+    <a href="#metrics">量化</a>
+  </nav>
+  <main>
+    <div class="tag">CLOUD / X02</div>
+    <div class="tag">PRD §19 / DAT01</div>
+    <div class="tag">测试台自带 Key</div>
+    <h1>云端处理 → 完整 Chapter</h1>
+    <div class="en">Upload 08 half-product zip · your DashScope key · run_x02 V04.1 → Chapters</div>
+    <p class="lead">对齐 PRD：本地只交<strong>最小 Evidence 半成品</strong>；理解/分段/文案在云端算法完成。团队联调时<strong>每人使用自己的百炼 API Key</strong>（仅本次请求内存，不落盘）。产品正式环境仍遵守 SYS02（密钥只在自有服务）。</p>
+
+    <div class="panel" id="work">
+      <h2>1 · 半成品 + 你的百炼 Key</h2>
+      <label class="note">08 导出的 diary_one_upload_bundle.zip</label>
+      <input type="file" id="bundle" accept=".zip,application/zip" />
+      <div class="row" style="margin-top:10px">
+        <input type="password" id="key" placeholder="DASHSCOPE_API_KEY（你的百炼密钥）" style="max-width:420px" autocomplete="off" />
+        <input type="text" id="dayKey" placeholder="dayKey 可选" style="max-width:160px" />
+        <button id="run">跑 X02 出 Chapter</button>
+      </div>
+      <p class="note" id="status">Key 不会写入服务器磁盘；关闭页面前可清除输入框。</p>
+    </div>
+
+    <div class="panel" id="metrics">
+      <h2>2 · 量化</h2>
+      <div class="grid" id="metricGrid"></div>
+    </div>
+
+    <div class="panel" id="chapters">
+      <h2>3 · Chapters（最终要的结果）</h2>
+      <div id="chapterList" class="note">尚未运行</div>
+    </div>
+
+    <div class="panel">
+      <h2>4 · Ahas / 调试</h2>
+      <div id="ahaList" class="note">—</div>
+      <pre id="log" class="note" style="white-space:pre-wrap;max-height:220px;overflow:auto;margin-top:10px"></pre>
+      <button class="secondary" id="export" disabled>导出报告 JSON</button>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul>
+      <li>08 半成品能被 X02 门禁吃下</li>
+      <li>个人百炼 Key 能跑通完整 Chapter</li>
+      <li>delivery / 可见章节数量可量化</li>
+    </ul>
+    <h3>SYS02</h3>
+    <p>正式 App 构建包不得带模型密钥。本台是内部验收例外，便于多人各自计费与排查。</p>
+    <h3>上游</h3>
+    <p>半成品来自 <strong>08 本地 MobileCLIP 台</strong>。</p>
+  </aside>
+</div>
+<script src="/assets/app.js"></script>
+</body>
+</html>

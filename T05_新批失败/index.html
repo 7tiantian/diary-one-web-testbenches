@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T05 · 新批失败 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T05_新批失败<br/>端口 8905<br/>DIA04 · AI03 · T05</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">DIA04 · AI03 · T05</span>
+    <span class="tag">完整功能台</span>
+    <h1>T05 · 新批失败</h1>
+    <div class="en">T05_新批失败 · 页面结果 + 数据事实</div>
+    <p class="lead">先有 Ready 记忆与补记，再提交一批失败输入：旧结果与补记仍可看；失败不得显示成 Empty Day。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 建立已 Ready 的一天</h2>
+      <button id="seed">写入示例 Ready + 补记</button>
+      <pre id="dayView" class="log"></pre>
+    </div>
+    <div class="panel">
+      <h2>2 · 提交失败批次</h2>
+      <div class="row">
+        <button class="bad" id="failBatch">注入失败结果（PIPELINE_BLOCKED）</button>
+        <button class="warn" id="wrongEmpty">错误演示：把失败写成 Empty Day</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>3 · 验收</h2>
+      <div class="grid" id="metrics"></div>
+      <div id="pass"></div>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>旧 Ready 仍可见</li><li>补记仍在</li><li>失败≠Empty Day</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>真机整包安装回归（本台验证状态合同）</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8905</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

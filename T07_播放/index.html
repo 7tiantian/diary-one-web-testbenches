@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T07 · 播放 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T07_播放<br/>端口 8907<br/>CH02 · T07</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">CH02 · T07</span>
+    <span class="tag">完整功能台</span>
+    <h1>T07 · 播放</h1>
+    <div class="en">T07_播放 · 页面结果 + 数据事实</div>
+    <p class="lead">同时只允许一个播放源；锁屏/电话等中断应暂停；返回应用不得自动续播。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 两段媒体（可用本地视频或示例彩条）</h2>
+      <input type="file" id="vfiles" accept="video/*" multiple />
+      <div class="row"><button id="load">加载到播放器</button></div>
+      <div class="player-box"><div>播放器 A</div><video id="a" controls playsinline></video></div>
+      <div class="player-box"><div>播放器 B</div><video id="b" controls playsinline></video></div>
+    </div>
+    <div class="panel">
+      <h2>2 · 中断与返回</h2>
+      <div class="row">
+        <button class="warn" id="interrupt">模拟锁屏/来电中断</button>
+        <button id="resumeApp">模拟回到 App（不得自动播放）</button>
+      </div>
+      <p class="note" id="playState"></p>
+    </div>
+    <div class="panel">
+      <h2>3 · 验收</h2>
+      <div class="grid" id="metrics"></div>
+      <div id="pass"></div>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>最多一个播放源</li><li>中断暂停</li><li>返回不自动播放</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>真实来电与系统画中画机型差异</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8907</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

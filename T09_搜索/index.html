@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T09 · 搜索 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T09_搜索<br/>端口 8909<br/>SEA01–03 · T09</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">SEA01–03 · T09</span>
+    <span class="tag">完整功能台</span>
+    <h1>T09 · 搜索</h1>
+    <div class="en">T09_搜索 · 页面结果 + 数据事实</div>
+    <p class="lead">本地文字搜索；仅补记命中时，移除/更新来源后结果应及时失效；无云 API；读取故障不得显示成「零命中」。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 本地记忆库</h2>
+      <button id="seed">载入示例（含仅补记可命中的词）</button>
+      <button class="secondary" id="removeNote">移除补记来源</button>
+      <button class="warn" id="fault">模拟读取故障</button>
+      <button id="clearFault">清除故障</button>
+      <pre id="db" class="log"></pre>
+    </div>
+    <div class="panel">
+      <h2>2 · 搜索</h2>
+      <div class="row">
+        <input class="inline" id="q" placeholder="搜索词，如：只有我知道" />
+        <button id="search">本地搜索</button>
+      </div>
+      <div id="results"></div>
+      <p class="note" id="apiNote"></p>
+    </div>
+    <div class="panel">
+      <h2>3 · 验收</h2>
+      <div class="grid" id="metrics"></div>
+      <div id="pass"></div>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>仅本地无 API</li><li>来源变更结果失效</li><li>故障≠零命中</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>语义搜索（D02 未批准）</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8909</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

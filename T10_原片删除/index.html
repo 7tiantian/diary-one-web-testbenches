@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T10 · 原片删除 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T10_原片删除<br/>端口 8910<br/>CAP · T10</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">CAP · T10</span>
+    <span class="tag">完整功能台</span>
+    <h1>T10 · 原片删除</h1>
+    <div class="en">T10_原片删除 · 页面结果 + 数据事实</div>
+    <p class="lead">生成记忆后删除一份 Manual Original：确认删除范围；已独立保存的派生媒体不得损坏。构造样本只证明交互与隔离，不宣称真机接入完成。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 原片与派生</h2>
+      <button id="seed">构造：Manual 原片 + 已生成记忆派生图</button>
+      <pre id="view" class="log"></pre>
+    </div>
+    <div class="panel">
+      <h2>2 · 删除</h2>
+      <div class="row">
+        <button class="bad" id="del">删除选中 Manual Original</button>
+        <button class="warn" id="wrongDel">错误演示：级联删掉派生</button>
+      </div>
+      <p class="note">删除前确认范围：仅 Manual 原片，不影响已准入 Chapter 派生媒体。</p>
+    </div>
+    <div class="panel">
+      <h2>3 · 验收</h2>
+      <div class="grid" id="metrics"></div>
+      <div id="pass"></div>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>删除范围正确</li><li>派生媒体不损坏</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>真实设备 Manual 来源接入（未完成前不得宣称）</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8910</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

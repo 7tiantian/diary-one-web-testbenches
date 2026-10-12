@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T12 · 数据作用域 · Diary One 验收台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 核心验收</div>
+    <div class="sub">T12_数据作用域<br/>端口 8912<br/>ACC03 · PRI · T12</div>
+    <a class="active" href="#work">测试台</a>
+    <a href="../README.md">返回目录</a>
+  </nav>
+  <main>
+    <span class="tag">PRD §27</span>
+    <span class="tag">ACC03 · PRI · T12</span>
+    <span class="tag">完整功能台</span>
+    <h1>T12 · 数据作用域</h1>
+    <div class="en">T12_数据作用域 · 页面结果 + 数据事实</div>
+    <p class="lead">换账号后：旧任务与晚到媒体回调不得越权、不得污染新库；旧查询不可继续打开。</p>
+    <div id="work">
+    <div class="panel">
+      <h2>1 · 账号 A 会话</h2>
+      <div class="row">
+        <input class="inline" id="userA" value="alice@example.com" />
+        <button id="loginA">登录 A 并写入私有数据</button>
+      </div>
+      <pre id="viewA" class="log"></pre>
+    </div>
+    <div class="panel">
+      <h2>2 · 换账号 B</h2>
+      <div class="row">
+        <input class="inline" id="userB" value="bob@example.com" />
+        <button id="loginB">登出 A → 登录 B（应 wipe 本地库）</button>
+      </div>
+      <div class="row">
+        <button class="warn" id="lateCallback">模拟 A 的晚到任务回调</button>
+        <button class="bad" id="openOldQuery">尝试打开 A 的旧查询</button>
+      </div>
+      <pre id="viewB" class="log"></pre>
+    </div>
+    <div class="panel">
+      <h2>3 · 验收</h2>
+      <div class="grid" id="metrics"></div>
+      <div id="pass"></div>
+    </div>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul><li>不越权</li><li>不污染新库</li><li>旧查询不可打开</li></ul>
+    <h3>暂时不能证明</h3>
+    <ul><li>服务端强制鉴权仍需用真 BFF Token 抽检</li></ul>
+    <h3>启动</h3>
+    <p class="note">.\start.ps1<br/>http://127.0.0.1:8912</p>
+  </aside>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

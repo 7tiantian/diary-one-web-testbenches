@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>08 · 本地 MobileCLIP 轻处理 · Diary One</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="brand">Diary One · 商用算法测试台</div>
+    <div class="sub">08_local_light_pipeline<br/>MobileCLIP · 1/3/5/10 · V04 半成品</div>
+    <a href="#work" class="active">轻处理台</a>
+    <a href="#route">选帧路由</a>
+    <a href="#metrics">量化指标</a>
+  </nav>
+  <main>
+    <div class="tag">LOCAL ONLY</div>
+    <div class="tag">PRD §19 / PRI02</div>
+    <div class="tag">MobileCLIP BFF</div>
+    <h1>本地算法轻处理（真链路）</h1>
+    <div class="en">去重(sha256) → ffmpeg 探针 → MobileCLIP → 门控 1/3/5/10 → V04 zip</div>
+    <p class="lead">对齐 App / WINDOWS_MOBILECLIP_BFF：<strong>先按 original_sha256 去重</strong>（会话内 + 历史账本），再压图/探针/语义选帧。本台<strong>不</strong>持有百炼 Key，也<strong>不</strong>产出 Chapter。</p>
+
+    <div class="panel" id="work">
+      <h2>1 · 输入一天素材 + BFF</h2>
+      <input type="file" id="files" multiple accept="image/*,video/*" />
+      <div class="row" style="margin-top:10px">
+        <input type="text" id="bff" value="http://127.0.0.1:8790" style="max-width:280px" />
+        <input type="text" id="token" value="dev-token" style="max-width:140px" />
+        <input type="text" id="dayKey" placeholder="dayKey 如 2026-10-10" style="max-width:160px" />
+        <label class="note" style="display:flex;align-items:center;gap:6px">
+          <input type="checkbox" id="skipLedger" checked /> 跳过账本已见重复（App 默认）
+        </label>
+        <button class="secondary" id="ping">探测 MobileCLIP</button>
+        <button id="run">跑本地轻处理</button>
+      </div>
+      <p class="note" id="semStatus">先启动 diary-one/services/bff 的 start-dev-lite.ps1；health 里 mobileclip.available 须为 true。</p>
+    </div>
+
+    <div class="panel" id="route">
+      <h2>2 · 每条视频的门控结果</h2>
+      <div id="rows" class="note">尚未运行</div>
+    </div>
+
+    <div class="panel" id="metrics">
+      <h2>3 · 量化</h2>
+      <div class="grid" id="metricGrid"></div>
+      <div class="row" style="margin-top:12px">
+        <a id="dl" class="btn" style="display:none" href="#">下载半成品 zip → 交给 09</a>
+        <button class="secondary" id="export" disabled>导出报告 JSON</button>
+      </div>
+      <pre id="log" class="note" style="white-space:pre-wrap;max-height:240px;overflow:auto"></pre>
+    </div>
+  </main>
+  <aside>
+    <h3>这轮能证明什么</h3>
+    <ul>
+      <li>同内容 sha256 会话/账本去重生效</li>
+      <li>MobileCLIP 探针向量真的出来了</li>
+      <li>1/3/5/10 门控可解释（reasonCodes）</li>
+      <li>半成品是 V04 bundle，可给 09 跑 Chapter</li>
+      <li>原片未进 zip（只有 Evidence 帧）</li>
+    </ul>
+    <h3>PRD 边界</h3>
+    <ul>
+      <li>§19：手机做抽帧与轻量信号；云端做 Chapter</li>
+      <li>SYS02：产品 App 不持 Key；本台也不持 Key</li>
+    </ul>
+    <h3>下一步</h3>
+    <p>下载 zip → 打开 <strong>09 云端台</strong> → 每人填自己的百炼 API Key → 跑出完整 Chapter。</p>
+  </aside>
+</div>
+<script src="/assets/app.js"></script>
+</body>
+</html>
